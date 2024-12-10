@@ -2,9 +2,9 @@
 This repository contains instructions and scripts for the data pipeline for the annotation of the UN Parallel corpus.
 
 ### Table of Content
-1. [UN Paralle Corpus to CSV](#from-un-parallel-corpus-to-csv)
+1. [UN Parallel Corpus to CSV](#from-un-parallel-corpus-to-csv)
 2. [From CSV to Filtered Batches for Label Studio](#from-csv-to-filtered-batches-for-label-studio-simple-filter)
-3. [From CSV to Filtered Batches using an Existing Model](#from-csv-to-filtered-batches-from-an-existing-model)
+3. [From CSV to Filtered Batches using an Existing Model](#from-csv-to-filtered-batches-using-an-existing-model)
 
 ## From UN Parallel Corpus to CSV
 

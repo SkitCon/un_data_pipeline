@@ -5,6 +5,8 @@ This repository contains instructions and scripts for the data pipeline for the 
 1. [UN Parallel Corpus to CSV](#from-un-parallel-corpus-to-csv)
 2. [From CSV to Filtered Batches for Label Studio](#from-csv-to-filtered-batches-for-label-studio-simple-filter)
 3. [From CSV to Filtered Batches using an Existing Model](#from-csv-to-filtered-batches-using-an-existing-model)
+4. [Starting a Label Studio Project](#starting-a-label-studio-project)
+5. [From JSON exported from Label Studio to TSV](#from-json-exported-from-label-studio-to-tsv)
 
 ## From UN Parallel Corpus to CSV
 
@@ -45,3 +47,23 @@ Note: This corpus has already been compiled into CSVs of years. This file is ava
 2. This will result in 30 batches of 400 sentences formatted for Label Studio in annotations/data/batch_X.csv
 
 ## From CSV to Filtered Batches using an Existing Model
+
+Note: These files may need to be edited for your file system.
+
+1. Run `3_select_ALL.R` to generate 5 batches of 100,000 sentences from the UN corpus.
+2. Run `run_filter.sh` to generate binary predictions using binary_predict.sh for each QuadClass category.
+3. Run the Jupyter Notebook file `process_UN_filtered_data.ipynb` to combine these predictions into a balanced csv and create batches of 180 sentences for them.
+
+## Starting a Label Studio Project
+
+1. Click "Create Project" and select the desired workspace (likely UN_data).
+2. In the data import tab, select the desired batch.
+3. In the labeling setup tab, add the labeling interface by selecting "Custom template" and copying the XML markup for your project into the input box.
+4. Once created, add the desired members in the members tab of the project.
+5. Assign annotations by selecting all annotations in the data manager tab and selecting "assign annotators".
+
+## From JSON exported from Label Studio to TSV
+
+1. Export the annotations from Label Studio by creating a snapshot in the data manager tab and downloading the full JSON version.
+2. Run `process_json_to_tsv.py` with the directory containing the JSON files you wish to process as the only argument.
+3. Now the exported TSVs for input into a model should be in the parent directory of JSON directory.
